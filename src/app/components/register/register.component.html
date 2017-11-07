@@ -1,0 +1,22 @@
+<h1>Login</h1>
+
+<form #registerForm="ngForm" (ngSubmit)="register(first_name.value, last_name.value, email.value, password.value)">
+<div class="form-group">
+    <label>First name</label>
+    <input #first_name name='first_name' type="text" class="form-control">
+  </div>
+	<div class="form-group">
+    <label>Last name</label>
+    <input #last_name name='last_namel' type="text" class="form-control">
+  </div>	
+  <div class="form-group">
+    <label>Email address</label>
+    <input #email name='email' type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input #password name='password' type="password" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
