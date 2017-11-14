@@ -1,3 +1,18 @@
-<p>
-  galleries works!
-</p>
+<h1>Galleries</h1>
+
+<app-create-gallery #galleryForm (onSubmit)="submitGallery($event)"></app-create-gallery>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    	<th>Id</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gallery of galleries" [galleryBox]="gallery" (onEdit)="galleryForm.edit(gallery)" (onRemove)="remove(gallery)">
+    </tr>
+</table>
+
+<router-outlet></router-outlet>

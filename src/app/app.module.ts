@@ -6,6 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
+import { GalleryService } from './shared/services/gallery.service';
+import { CommentService } from './shared/services/comment.service';
+
+import { GalleryResolver } from './shared/resolver/gallery.resolver';
 
 import { AuthGuard } from './shared/guards/auth.guard';
 import { GuestGuard } from './shared/guards/guest.guard';
@@ -18,6 +22,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { GalleriesComponent } from './components/galleries/galleries.component';
 import { MyGalleriesComponent } from './components/galleries/my-galleries/my-galleries.component';
 import { CreateGalleryComponent } from './components/galleries/create-gallery/create-gallery.component';
+import { GalleryBoxComponent } from './components/galleries/gallery-box/gallery-box.component';
+import { GalleryDetailsComponent } from './components/galleries/gallery-details/gallery-details.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +34,10 @@ import { CreateGalleryComponent } from './components/galleries/create-gallery/cr
     RegisterComponent,
     GalleriesComponent,
     MyGalleriesComponent,
-    CreateGalleryComponent
+    CreateGalleryComponent,
+    GalleryBoxComponent,
+    GalleryDetailsComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -38,8 +48,11 @@ import { CreateGalleryComponent } from './components/galleries/create-gallery/cr
 
   ],
   providers: [AuthService,
+              GalleryService,
               AuthGuard,
-              GuestGuard],
+              GuestGuard,
+              GalleryResolver,
+              CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

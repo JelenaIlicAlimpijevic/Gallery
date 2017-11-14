@@ -1,0 +1,13 @@
+<td class="align-middle">{{ gallery.id }}</td>
+<td class="align-middle">
+<a [routerLink]="['/galleries', gallery.id]">
+	  {{ gallery.name }} </a> </td>
+<td class="align-middle">{{ gallery.description }}</td>
+<td>
+	<button class="btn btn-primary btn-sm" (click)="edit(gallery)">Edit</button>
+	<button class="btn btn-danger btn-sm" (click)="remove(gallery)">Remove</button>
+</td>
+
+
+
+

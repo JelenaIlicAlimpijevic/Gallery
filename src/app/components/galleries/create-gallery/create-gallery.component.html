@@ -1,3 +1,32 @@
-<p>
-  create-gallery works!
-</p>
+<form #galleryForm="ngForm" (ngSubmit)="submitGallery(newGallery)">
+  <div class="form-group">
+    <label>Gallery name</label>
+    <input #name="ngModel" [(ngModel)]="newGallery.name" name='name' type="text" class="form-control" required minlength="2">
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+     class="alert alert-danger">
+      <div *ngIf="name.errors.required">
+         Name is required.
+      </div>
+      <div *ngIf="name.errors.minlength">
+         Name must be at least 2 characters long.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input #description="ngModel" [(ngModel)]="newGallery.description" name='description' type="text" class="form-control"  maxlength="100">
+  
+      <div *ngIf="description.errors?.maxlength">
+        Description must be at less than 1000 characters long.
+      </div>
+    
+  </div>
+  <div class="form-group">
+    <label>Link</label>
+    <input #imageUrl="ngModel" type="text" [(ngModel)]="newGallery.imageUrl" name="imageUrl">
+	<div *ngIf="imageUrl?.url">Must be url</div>
+  </div>  
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

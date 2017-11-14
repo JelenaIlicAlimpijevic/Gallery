@@ -1,0 +1,13 @@
+<ul class="list-group" *ngIf="gallery">
+  <li class="list-group-item">Name: {{ gallery.name }}</li>
+  <li class="list-group-item">Description: {{ gallery.description }}</li>
+  <li class="list-group-item">Images: {{ gallery.imageUrl }}</li>
+</ul>
+
+<form #commentForm="ngForm" (ngSubmit)="submitComment(newComment, gallery.id)">
+  <div class="form-group">
+    <label>Comment</label>
+    <input #content="ngModel" [(ngModel)]="newComment.content" name='content' type="text" class="form-control" required maxlength="1000">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
